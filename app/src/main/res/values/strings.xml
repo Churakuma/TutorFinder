@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TutorFinder</string>
+    <string name="logo_desc">Tutorly Logo</string>
+    <string name="login_account_type_query">I\'m logging in as a...</string>
+    <string name="tutor">Tutor</string>
+    <string name="student">Student</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="button_sign_in">Sign In</string>
+</resources>
