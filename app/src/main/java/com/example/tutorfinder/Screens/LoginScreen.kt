@@ -2,6 +2,7 @@ package com.example.tutorfinder.Screens
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -34,8 +36,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tutorfinder.R
@@ -55,6 +60,15 @@ fun LoginScreen(
     var selectedValue by rememberSaveable { mutableStateOf(" ") }
     var emailInput by remember { mutableStateOf(" ") }
     var passwordInput by remember { mutableStateOf(" ") }
+    var signUp by remember { mutableStateOf(" ") }
+
+    val annotatedString = buildAnnotatedString {
+        pushStringAnnotation(tag = "signup", annotation = "signup link")
+        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+            append(stringResource(id = R.string.signup_prompt))
+        }
+        pop()
+    }
 
     Column(
         modifier = modifier,
@@ -146,10 +160,25 @@ fun LoginScreen(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = colorResource(id = R.color.secondary),
                 ),
-                onClick = { /*TODO*/ }
+                onClick = { /*TODO: Add logic to proceed to home page*/ }
             ) {
                 Text(text = stringResource(id = R.string.button_sign_in))
             }
+            Row(
+                modifier = Modifier
+            ) {
+                Text(
+                    text = stringResource(id = R.string.lead_signup_prompt) + " ",
+                    color = colorResource(id = R.color.body_text)
+                )
+                ClickableText(
+                    text = annotatedString,
+                    onClick = {
+                        //TODO: Add logic to proceed to signup screen
+                    }
+                )
+            }
+
         }
     }
 }
