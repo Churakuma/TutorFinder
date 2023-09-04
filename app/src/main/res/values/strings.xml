@@ -15,4 +15,10 @@
     <string name="signup_address">Address</string>
     <string name="signup_password_mismatch">Passwords do not match!</string>
     <string name="button_submit">Submit</string>
+    <string name="subject_selection_prompt">What would you like to learn?</string>
+    <string name="english">English</string>
+    <string name="mathematics">Mathematics</string>
+    <string name="computer_science">Computer Science</string>
+    <string name="science">Science</string>
+    <string name="humanities">Humanities</string>
 </resources>

@@ -43,6 +43,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.tutorfinder.Data.DataSource
 import com.example.tutorfinder.R
 
 /**
@@ -55,7 +56,7 @@ import com.example.tutorfinder.R
 fun LoginScreen(
     modifier: Modifier = Modifier,
     onSelectionChanged: (String) -> Unit = {},
-    options: List<String>
+    accountTypes: List<Int>
 ) {
     var selectedValue by rememberSaveable { mutableStateOf(" ") }
     var emailInput by remember { mutableStateOf(" ") }
@@ -96,27 +97,27 @@ fun LoginScreen(
         }
         //TODO: CENTER THE RADIO BUTTONS RELATIVE TO THE IMAGE
         Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
-            options.forEach { item ->
+            DataSource.accountTypes.forEach { item ->
                 Row(
                     modifier = Modifier.selectable(
-                        selected = selectedValue == item,
+                        selected = selectedValue == item.toString(),
                         onClick = {
-                            selectedValue = item
-                            onSelectionChanged(item)
+                            selectedValue = item.toString()
+                            onSelectionChanged(item.toString())
                         }
                     ),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RadioButton(
-                        selected = selectedValue == item,
+                        selected = selectedValue == item.toString(),
                         onClick = {
-                            selectedValue = item
-                            onSelectionChanged(item)
+                            selectedValue = item.toString()
+                            onSelectionChanged(item.toString())
                         }
                     )
                     Text(
                         color = colorResource(id = R.color.body_text),
-                        text = item
+                        text = stringResource(id = item)
                     )
                 }
             }
@@ -211,10 +212,10 @@ fun onNextButtonClicked() {
     //TODO: Develop logic to login with Firebase/AWS
 }
 
-@Preview
+@Preview()
 @Composable
 fun LoginScreenPreview(){
     LoginScreen(
-        options = listOf("Tutor", "Student")
+        accountTypes = DataSource.accountTypes
     )
 }

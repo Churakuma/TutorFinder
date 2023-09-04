@@ -7,4 +7,12 @@ object DataSource {
         R.string.tutor,
         R.string.student
     )
+
+    val subjectList = listOf(
+        R.string.mathematics,
+        R.string.computer_science,
+        R.string.english,
+        R.string.humanities,
+        R.string.science
+    )
 }

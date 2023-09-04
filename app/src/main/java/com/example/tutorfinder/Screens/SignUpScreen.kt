@@ -173,6 +173,9 @@ fun SignUpScreen(
      }
     }
 
+/**
+ * Function that validates the two password inputs from user match exactly
+ */
 fun validatePassword(context: Context, passwordInput: String, secondPasswordInput: String) {
     val text = context.getString(R.string.signup_password_mismatch)
     val duration = Toast.LENGTH_SHORT
