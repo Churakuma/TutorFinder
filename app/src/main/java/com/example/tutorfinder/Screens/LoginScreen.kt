@@ -156,7 +156,8 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                modifier = Modifier,
+                modifier = Modifier
+                    .padding(bottom = dimensionResource(id = R.dimen.padding_small)),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = colorResource(id = R.color.secondary),
                 ),
