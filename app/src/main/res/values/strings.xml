@@ -21,4 +21,7 @@
     <string name="computer_science">Computer Science</string>
     <string name="science">Science</string>
     <string name="humanities">Humanities</string>
+    <string name="verification_text">Please verify your email and sign in</string>
+    <string name="verification_email_lead">"Email: "</string>
+    <string name="button_verification_email">Send Verification Email</string>
 </resources>
