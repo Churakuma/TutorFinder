@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "307966549157",
+    "project_id": "tutorfinder-1266e",
+    "storage_bucket": "tutorfinder-1266e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307966549157:android:ea8c21c5e35524dc83814c",
+        "android_client_info": {
+          "package_name": "com.example.tutorfinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2CV-bCehRTZp437dIXI-gSRV2xDjGQJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

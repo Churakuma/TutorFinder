@@ -1,8 +1,7 @@
-package com.example.tutorfinder.Screens
+package com.example.tutorfinder.Screens.Login
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,14 +14,12 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -127,7 +124,7 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            EditTextField(
+            EmailField(
                 label = R.string.login_email,
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Email,
@@ -199,6 +196,29 @@ fun EditTextField(
         keyboardOptions = keyboardOptions,
         onValueChange = onValueChange,
         singleLine = true,
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            containerColor = colorResource(id = R.color.background),
+            focusedBorderColor = colorResource(id = R.color.accent),
+            unfocusedBorderColor = colorResource(id = R.color.secondary)
+        ),
+        modifier = modifier
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EmailField(
+    @StringRes label: Int,
+    keyboardOptions: KeyboardOptions,
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier) {
+    OutlinedTextField(
+        singleLine = true,
+        keyboardOptions = keyboardOptions,
+        value = value,
+        onValueChange = { onValueChange(it) },
+        placeholder = { Text(stringResource(id = R.string.login_email)) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             containerColor = colorResource(id = R.color.background),
             focusedBorderColor = colorResource(id = R.color.accent),

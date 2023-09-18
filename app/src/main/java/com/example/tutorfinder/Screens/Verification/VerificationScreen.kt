@@ -1,4 +1,4 @@
-package com.example.tutorfinder.Screens
+package com.example.tutorfinder.Screens.Verification
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -47,7 +47,7 @@ fun VerificationScreen(
                 color = colorResource(id = R.color.body_text)
             )
             Text(text = emailInput,
-                color = colorResource(id = R.color.body_text))
+                color = colorResource(id = R.color.body_text)) // User email address from signup
         }
         Button(
             modifier = Modifier
