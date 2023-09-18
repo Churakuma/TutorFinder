@@ -15,3 +15,7 @@ fun String.isValidPassword(): Boolean {
             this.length >= MIN_PASS_LENGTH &&
             Pattern.compile(PASS_PATTERN).matcher(this).matches()
 }
+
+fun String.passwordMatches(repeated: String): Boolean {
+    return this == repeated
+}

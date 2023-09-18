@@ -33,4 +33,10 @@
     <!-- Login -->
     <string name="empty_password_error">Password cannot be empty</string>
     <string name="recovery_email_sent">Please check your inbox for the recovery email.</string>
+    
+    <!-- Sign_up -->
+    <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
+    <string name="create_account">Create account.</string>
+    <string name="password_match_error">Passwords do not match.</string>
+    <string name="empty_fields">All fields must be filled.</string>
 </resources>
