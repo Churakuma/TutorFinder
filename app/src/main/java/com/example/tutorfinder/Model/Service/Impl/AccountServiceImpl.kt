@@ -45,4 +45,8 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth) : A
     override suspend fun signOut() {
         auth.signOut()
     }
+
+    companion object {
+        private const val LINK_ACCOUNT_TRACE = "linkaccount"
+    }
 }

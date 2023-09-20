@@ -40,8 +40,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tutorfinder.Data.DataSource
+import com.example.tutorfinder.Model.Service.Impl.AccountServiceImpl
 import com.example.tutorfinder.R
+
 
 /**
  * Composable that allows the user to either login to the application or begin the process to sign
@@ -53,6 +56,8 @@ import com.example.tutorfinder.R
 fun LoginScreen(
     modifier: Modifier = Modifier,
     onSelectionChanged: (String) -> Unit = {},
+    /**  openAndPopUp: (String, String) -> Unit,  */
+    viewModel: LoginViewModel,
     accountTypes: List<Int>
 ) {
     var selectedValue by rememberSaveable { mutableStateOf(" ") }
@@ -67,6 +72,8 @@ fun LoginScreen(
         }
         pop()
     }
+    
+    val uiState by viewModel.uiState
 
     Column(
         modifier = modifier,
@@ -159,7 +166,7 @@ fun LoginScreen(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = colorResource(id = R.color.secondary),
                 ),
-                onClick = { /*TODO: Add logic to proceed to home page*/ }
+                onClick = { viewModel.onSignInClick { emailInput, passwordInput -> } }
             ) {
                 Text(text = stringResource(id = R.string.button_sign_in))
             }
@@ -230,12 +237,4 @@ fun EmailField(
 
 fun onNextButtonClicked() {
     //TODO: Develop logic to login with Firebase/AWS
-}
-
-@Preview()
-@Composable
-fun LoginScreenPreview(){
-    LoginScreen(
-        accountTypes = DataSource.accountTypes
-    )
 }

@@ -93,6 +93,10 @@ class SignUpViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Function to validate that an input has been put into each sign up editText field. Is called
+     * in onSignUpClick().
+     */
     private fun checkIsEmpty(textFields: ArrayList<String>) {
         for (item in textFields)
             if (item.isEmpty())
